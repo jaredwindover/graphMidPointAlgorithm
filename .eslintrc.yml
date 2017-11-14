@@ -1,0 +1,58 @@
+env:
+  browser: true
+  es6: true
+extends:
+  - 'eslint:recommended'
+  - 'plugin:import/errors'
+parser: babel-eslint
+parserOptions:
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+  sourceType: module
+plugins:
+  - import
+rules:
+  indent:
+    - error
+    - tab
+    - VariableDeclarator: 0
+      ObjectExpression: first
+      CallExpression:
+        arguments: first
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
+  no-mixed-spaces-and-tabs:
+    - error
+    - smart-tabs
+  no-unused-vars:
+    - error
+    - ignoreRestSiblings: true
+      argsIgnorePattern: "^_[0-9]*"
+      memberExpression: false
+  max-len:
+    - error
+    - code: 79
+      tabWidth: 2
+      ignorePattern: "} from "
+  object-property-newline:
+    - error
+    - allowMultiplePropertiesPerLine: true
+  arrow-parens:
+    - error
+    - as-needed
+  prefer-const:
+    - error
+    - destructuring: all
+  camelcase:
+    - error
+  import/extensions:
+    - error
+    - always
+    - js: never
