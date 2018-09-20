@@ -24,6 +24,21 @@ const drawMidPoints = (context, midPoints) => {
 	}
 };
 
+const drawTraces = (context, traces, pairs) => {
+	for (var i = 0; i < traces[0].length; i++) {
+		for (var j = 0; j < traces.length; j++) {
+			drawCircle(context, 2, traces[j][i]);
+			drawLine(context, traces[j][i], traces[pairs[j]][i]);
+		}
+	}
+};
+
+const	drawFollows = (context, points, pairs) => {
+	for (var i = 0; i < points.length; i++) {
+		drawLine(context, points[i], points[pairs[i]]);
+	}
+};
+
 const drawEdges = (context, points, edges) => {
 	for (const edge in edges ) {
 		const others = edges[edge];
@@ -44,5 +59,7 @@ export default {
 	drawPoints,
 	drawMidPoints,
 	drawEdges,
+	drawTraces,
+	drawFollows,
 	clear
 };
